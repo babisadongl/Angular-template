@@ -1,0 +1,24 @@
+<!-- Default checkbox start -->
+<!-- ** To provide checkbox style button toggling, send
+  checkboxClass='btn-check'
+  labelClass='btn btn-primary' -->
+<div [class.form-check]="validate && label" [class.form-check-inline]="inline">
+  <input
+    class="form-check-input"
+    mdbCheckbox
+    mdbValidate
+    validateSuccess="false"
+    type="checkbox"
+    [attr.aria-label]="label ?? ariaLabel"
+    [checked]="checked"
+    [defaultValue]="defaultValue"
+    [disabled]="disabled"
+    [formControl]="control"
+    [id]="id"
+    [ngClass]="checkboxClass"
+    [readonly]="readonly" />
+  <label class="form-check-label" [ngClass]="labelClass" [for]="id"> {{ label }} </label>
+  <mdb-error *ngIf="showValidationMessage && isInvalid">{{ errorMessage }}</mdb-error>
+  <mdb-success *ngIf="showValidationMessage && !isInvalid">{{ successMessage }}</mdb-success>
+</div>
+<!-- Default checkbox end -->

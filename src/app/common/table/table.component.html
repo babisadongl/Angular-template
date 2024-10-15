@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-between align-items-center mt-4">
+  <div class="w-25 d-flex">
+    <mdb-form-control *ngIf="searchable">
+      <input
+        mdbInput
+        [type]="searchable.inputType"
+        [class]="searchable.inputClass"
+        [id]="searchable.id"
+        (keyup)="search($event)" />
+      <label mdbLabel [class]="searchable.labelClass" [for]="searchable.id">Search</label>
+    </mdb-form-control>
+    <button type="button" class="btn btn-light btn-floating">
+      <i-bs name="funnel"></i-bs>
+    </button>
+  </div>
+  <div class="d-flex justify-self-end">
+    <button
+      type="button"
+      class="btn btn-accent-2 me-2"
+      [ngClass]="action.class"
+      *ngFor="let action of tableConfig.baseActions"
+      (click)="onBaseAction(action.type)">
+      <i-bs [name]="action.icon" width="14" height="14"></i-bs> {{ action.label }}
+    </button>
+  </div>
+</div>
+<div class="datatable">
+  <div class="datatable-inner table-responsive ps">
+    <table
+      class="table datatable-table"
+      [ngClass]="tableConfig.tableClass || ''"
+      mdbTable
+      mdbTableSort
+      #table="mdbTable"
+      #sort="mdbTableSort"
+      #tableSearch="mdbTable"
+      [dataSource]="dataSource"
+      [pagination]="pagination"
+      [sort]="sort"
+      (sortChange)="onSortChange($event)">
+      <thead class="datatable-header">
+        <tr>
+          <th
+            *ngFor="let header of tableConfig.objectData"
+            [mdbTableSortHeader]="header.headerKey"
+            [ngClass]="tableConfig.headerClass || ''"
+            scope="col">
+            {{ header.headerKey }}
+          </th>
+          <!-- Action Items -->
+          <th></th>
+        </tr>
+      </thead>
+      <tbody mdbTableCol class="datatable-body" scope="row">
+        <ng-container *ngFor="let record of table.data">
+          <tr>
+            <td *ngFor="let data of tableConfig.objectData">
+              <ng-template [ngIf]="data.isCollapsible" [ngIfElse]="nonCollapsible">
+                <button
+                  type="button"
+                  class="btn btn-light btn-sm btn-floating"
+                  mdbWavesEffect
+                  *ngIf="!record.collapsed"
+                  (click)="toggleCollapse(record)">
+                  <i-bs name="dash" class="text-primary"></i-bs>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light btn-sm btn-floating"
+                  mdbWavesEffect
+                  *ngIf="record.collapsed"
+                  (click)="toggleCollapse(record)">
+                  <i-bs name="plus" class="text-primary"></i-bs>
+                </button>
+              </ng-template>
+              <ng-template #nonCollapsible>
+                {{
+                  data.type ? (record[data.dataKey] | formatPipe: data.type) : record[data.dataKey]
+                }}
+              </ng-template>
+            </td>
+            <td>
+              <app-action-list
+                [actions]="actions"
+                [dataSource]="dataSource"
+                (emitActionEvent)="receiveActionEvent($event)"></app-action-list>
+            </td>
+          </tr>
+          <tr *ngIf="!record.collapsed">
+            <td colspan="100%">
+              <app-table-extended-view
+                *ngIf="extendedView"
+                [extendedView]="extendedView"
+                [record]="record">
+              </app-table-extended-view>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <div class="datatable-pagination">
+    <mdb-table-pagination #pagination (paginationChange)="onPaginationChange($event)">
+    </mdb-table-pagination>
+  </div>
+</div>

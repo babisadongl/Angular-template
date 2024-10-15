@@ -1,0 +1,11 @@
+<app-table
+  [tableConfig]="tableConfig"
+  [dataSource]="dataSource"
+  [actions]="actions"
+  [searchable]="searchable"
+  [extendedView]="extendedView"
+  (baseAction)="onBaseAction($event)"
+  (searchChange)="onSearchChange($event)"
+  (paginationChange)="onPaginationChange($event)"
+  (sortChange)="onSortChange($event)">
+</app-table>

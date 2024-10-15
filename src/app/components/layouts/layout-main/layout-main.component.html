@@ -1,0 +1,33 @@
+<!-- Sidenav -->
+<mdb-sidenav-layout>
+  <mdb-sidenav
+    #sidenav="mdbSidenav"
+    slim="true"
+    position="fixed"
+    [slimCollapsed]="false"
+    mode="side"
+    [hidden]="false"
+    color="warning"
+    scrollContainer="#scroll-container"
+    sidenavBreakpoint="768">
+    <app-sidebar class="app-sidenav"></app-sidebar>
+  </mdb-sidenav>
+
+  <mdb-sidenav-content #sidenavContent>
+    <header class="sticky-top">
+      <button
+        #sidenavToggle
+        (click)="sidenav.toggleSlim()"
+        class="navbar-toggler btn-floating btn-accent-1 d-block shadow sticky-top btn-sm"
+        type="button"
+        aria-label="Toggle navigation">
+        <i-bs name="list"></i-bs>
+      </button>
+      <app-header></app-header>
+    </header>
+
+    <div class="container-fluid position-relative">
+      <router-outlet></router-outlet>
+    </div>
+  </mdb-sidenav-content>
+</mdb-sidenav-layout>

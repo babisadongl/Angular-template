@@ -1,0 +1,12 @@
+<form [formGroup]="inputForm">
+  <app-input
+    [inputType]="'text'"
+    [placeholder]="'Enter name'"
+    [showValidation]="showValidation"
+    [pattern]="pattern"
+    [control]="'name'"
+    [form]="inputForm"
+    (inputValue)="valueChange($event)">
+  </app-input>
+  <button (click)="submit()">Submit</button>
+</form>

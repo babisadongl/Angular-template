@@ -1,0 +1,39 @@
+<mdb-form-control style="width: 22rem">
+  <!-- <input
+    class="form-control mt-2"
+    mdbInput
+    mdbValidate
+    validateSuccess="false"
+    type="text"
+    [attr.aria-label]="label ?? ariaLabel"
+    [formControl]="control"
+    [mdbAutocomplete]="autocomplete"
+    [id]="id"
+    [ngClass]="autocompleteClass"
+    [disabled]="disabled"
+    [readonly]="readonly" /> -->
+  <input
+    class="form-control m-2"
+    mdbInput
+    mdbValidate
+    validateSuccess="false"
+    type="text"
+    [attr.aria-label]="label ?? ariaLabel"
+    [ngModel]="searchText | async"
+    (ngModelChange)="searchText.next($event)"
+    [mdbAutocomplete]="autocomplete"
+    [id]="id"
+    [ngClass]="autocompleteClass"
+    [disabled]="disabled"
+    [readonly]="readonly" />
+  <label mdbLabel class="form-label" [ngClass]="labelClass" [for]="id">{{ label }}</label>
+  <mdb-error *ngIf="showValidationMessage && isInvalid">{{ errorMessage }}</mdb-error>
+  <mdb-success *ngIf="showValidationMessage && !isInvalid">{{ successMessage }}</mdb-success>
+  <div *ngIf="loading" class="autocomplete-loader spinner-border" role="status"></div>
+</mdb-form-control>
+<mdb-autocomplete #autocomplete="mdbAutocomplete" (opened)="onOpen()" (selected)="onSelect($event)">
+  <mdb-option *ngFor="let option of results | async" [value]="option[valueKey]">
+    {{ option[displayKey] }}
+  </mdb-option>
+  <div *ngIf="notFound" class="autocomplete-no-results">No results found</div>
+</mdb-autocomplete>

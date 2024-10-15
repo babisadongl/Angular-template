@@ -1,0 +1,11 @@
+<form [formGroup]="radioForm" (ngSubmit)="submit()">
+  <app-radio
+    [radioOptions]="genderOptions"
+    [control]="radioForm.controls['gender']"
+    [validate]="true"
+    [showValidationMessage]="true"
+    [inline]="true"
+    (valueChange)="onValueChange($event)"></app-radio>
+
+  <button mdbBtn type="submit">Submit</button>
+</form>

@@ -1,0 +1,42 @@
+<form [formGroup]="form">
+  <div [ngSwitch]="question.controlType">
+    <app-input
+      *ngSwitchCase="'input'"
+      [control]="question.controlName"
+      [id]="question.id"
+      [inputType]="question.inputType || 'text'"
+      [required]="question.required || false"
+      [form]="form"></app-input>
+
+    <app-radio
+      *ngSwitchCase="'radio'"
+      [radioOptions]="question.options"
+      [control]="question.controlName"
+      [validate]="true"
+      [showValidationMessage]="true"
+      [inline]="true"
+      [form]="form"></app-radio>
+
+    <app-select
+      *ngSwitchCase="'select'"
+      [options]="question.options"
+      [isMultiple]="question.isMultiple || false"
+      [control]="question.controlName"
+      [placeholder]="'Mutiselect'"
+      [clearButton]="true"
+      [form]="form"></app-select>
+
+    <app-field-wrapper
+      *ngSwitchCase="'fieldset'"
+      [subQuestions]="question.subQuestions"
+      [form]="form"
+      [controlName]="question.controlName">
+    </app-field-wrapper>
+  </div>
+  <!-- </ng-container> -->
+
+  <!-- <div class="btn-well" *ngIf="submitButton">
+    <ng-content select="trunk-button"></ng-content>
+    <ng-content select=".link-button-accent"></ng-content>
+  </div> -->
+</form>

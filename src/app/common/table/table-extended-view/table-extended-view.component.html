@@ -1,0 +1,5 @@
+<div [ngSwitch]="extendedView">
+  <app-sample-extended-view
+    *ngSwitchCase="extendedViews.SAMPLE"
+    [sample]="record"></app-sample-extended-view>
+</div>

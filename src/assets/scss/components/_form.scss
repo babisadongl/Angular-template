@@ -1,0 +1,30 @@
+label {
+  font-size: 0.875rem;
+}
+.form-control {
+  border: none;
+  font-size: $input-font-size;
+  padding: $input-padding-x $input-padding-y !important;
+  height: $input-height;
+}
+.input-group {
+  &-lg {
+    &:focus {
+      transition: $input-group-focus-transition;
+      border: 1px solid $input-group-focus-border-color;
+      outline: 0;
+    }
+    & > .form-control {
+      padding-left: 0 !important;
+      &:focus {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-text {
+    border: none;
+    background: $input-bg;
+  }
+}

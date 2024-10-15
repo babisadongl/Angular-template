@@ -1,0 +1,14 @@
+<form [formGroup]="checkboxForm">
+  <app-checkbox
+    [id]="'Angular'"
+    [inline]="true"
+    [label]="'Angular requiredTrue'"
+    [defaultValue]="'angular'"
+    [control]="checkboxForm.controls['angular']"
+    [validate]="true"
+    [showValidationMessage]="true"
+    [errorMessage]="'This checkbox should always be checked'"
+    (valueChange)="onValueChange($event)"></app-checkbox>
+
+  <button mdbBtn type="submit" (click)="submit()">Submit</button>
+</form>

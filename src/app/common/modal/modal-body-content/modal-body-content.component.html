@@ -1,0 +1,9 @@
+<div [ngSwitch]="bodyContentConstants">
+  <app-stepper *ngSwitchCase="bodyConstant.STEPPER" [modalForm]="modalForm"></app-stepper>
+  <app-input
+    *ngSwitchCase="bodyConstant.FORM"
+    [inputType]="'text'"
+    [placeholder]="'Enter name'"
+    [control]="modalForm.controls['name']">
+  </app-input>
+</div>

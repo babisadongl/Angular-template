@@ -1,0 +1,33 @@
+header {
+  &.sticky-top {
+    z-index: 1000;
+  }
+}
+.navbar {
+  height: $navbar-height;
+  .nav-item {
+    padding-left: $nav-link-padding-x;
+    padding-right: $nav-link-padding-x;
+  }
+  &-submenu {
+    padding: 0;
+    .submenu-item {
+      display: inline-block;
+      height: $navbar-height;
+      vertical-align: middle;
+      line-height: $navbar-height;
+      padding: 0 $nav-link-padding-x;
+      font-size: 0.875rem;
+      &:first-child {
+        font-size: 1rem;
+      }
+      a {
+        color: $body-color;
+      }
+      &.active {
+        font-weight: $font-weight-bold;
+        border-bottom: 3px solid $primary;
+      }
+    }
+  }
+}

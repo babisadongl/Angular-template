@@ -1,0 +1,21 @@
+.btn {
+  text-transform: unset;
+  height: $btn-height;
+  box-shadow: none;
+  &-floating {
+    &.dropdown-toggle {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  &-lg {
+    height: $btn-height-lg;
+  }
+}
+.navbar-toggler {
+  position: absolute;
+  z-index: $zindex-popover;
+  left: -15px;
+  top: 10px;
+}

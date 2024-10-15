@@ -1,0 +1,25 @@
+<div>
+  <form [formGroup]="selectForm">
+    <app-select
+      [options]="options"
+      [dataKey]="dataKey"
+      [label]="'Single Select'"
+      [isMultiple]="false"
+      [control]="selectForm.controls['singleOptionValue']"
+      [class]="selectClass"
+      [id]="id"
+      [disabled]="false"
+      (valueChange)="handleOnChange($event)"></app-select>
+    <app-select
+      [options]="options"
+      [dataKey]="dataKey"
+      [isMultiple]="true"
+      [control]="selectForm.controls['multiOptionValue']"
+      [class]="selectClass"
+      [id]="id"
+      [placeholder]="'Mutiselect'"
+      [clearButton]="true"
+      (valueChange)="handleOnChange($event)"></app-select>
+    <button (click)="submit()" class="btn btn-primary">Submit</button>
+  </form>
+</div>

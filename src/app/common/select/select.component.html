@@ -1,0 +1,28 @@
+<div [formGroup]="form" class="my-2">
+  <mdb-form-control [ngClass]="selectClass" mdbValidate>
+    <mdb-select
+      [multiple]="isMultiple"
+      [formControl]="control"
+      [id]="id"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [clearButton]="clearButton"
+      (valueChange)="onValueChange($event)"
+      mdbValidate>
+      <mdb-select-all-option *ngIf="isMultiple">Select all</mdb-select-all-option>
+      <mdb-option
+        *ngFor="let opt of options; let i = index"
+        [value]="opt.value || opt"
+        [disabled]="opt.disabled">
+        <label> {{ opt[dataKey] || opt }}</label>
+      </mdb-option>
+    </mdb-select>
+    <label mdbLabel class="form-label" *ngIf="label">{{ label }}</label>
+    <mdb-error *ngIf="showValidationMessage && (control.invalid || control.error)">{{
+      errorMessage
+    }}</mdb-error>
+    <mdb-success *ngIf="showValidationMessage && !(control.invalid || control.error)">{{
+      successMessage
+    }}</mdb-success>
+  </mdb-form-control>
+</div>

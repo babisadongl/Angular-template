@@ -1,0 +1,13 @@
+<form [formGroup]="autocompleteForm">
+  <app-autocomplete
+    [displayKey]="'name'"
+    [valueKey]="'name'"
+    [fetchList]="fetchAutocompleteList"
+    [control]="autocompleteForm.controls['name']"
+    [validate]="true"
+    [showValidationMessage]="true"
+    [errorMessage]="'This autocomplete should always have value'"
+    (valueChange)="onValueChange($event)"></app-autocomplete>
+
+  <button mdbBtn type="submit" (click)="submit()">Submit</button>
+</form>

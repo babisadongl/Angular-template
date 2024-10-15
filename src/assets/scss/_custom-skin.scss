@@ -1,0 +1,10 @@
+$my-theme-primary: #ff0000; // theme primary color, change this value to customize theme
+$my-theme-secondary: #69f0ae; // theme secondary color, change this value to customize theme
+
+$my-theme: mdb-light-theme(
+  $my-theme-primary,
+  $my-theme-secondary
+); // create the new theme using primary and
+
+// include theme styles
+@include mdb-theme($my-theme);

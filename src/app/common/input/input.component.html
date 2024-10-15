@@ -1,0 +1,28 @@
+<div class="md-form my-1" [formGroup]="form">
+  <label *ngIf="label" [ngClass]="labelClass" [for]="id">{{ label }}</label>
+  <input
+    class="form-control"
+    [type]="inputType"
+    [id]="id"
+    [mask]="inputType === 'number' && !mask ? '0*' : mask || null"
+    [dropSpecialCharacters]="dropSpecialCharacters"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [attr.maxlength]="maxlength"
+    [attr.minlength]="minlength"
+    [readonly]="readonly"
+    [pattern]="pattern ?? null"
+    [ngClass]="inputClass"
+    [formControlName]="control"
+    [required]="required"
+    (keyup)="valueChange($event)"
+    mdbValidate
+    mdbInput />
+  <div *ngIf="showValidation">
+    <div *ngFor="let validation of errorMsg">
+      <mdb-error *ngIf="control.hasError(validation.name)">{{ validation.value }}</mdb-error>
+    </div>
+    <mdb-success *ngIf="control.valid">{{ successMsg }}</mdb-success>
+  </div>
+  <mdb-success *ngIf="control.valid">{{ successMsg }}</mdb-success>
+</div>

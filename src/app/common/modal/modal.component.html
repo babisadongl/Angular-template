@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">{{ modalHeader }}</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <app-modal-body-content
+    [bodyContentConstants]="bodyContentConstants"
+    [modalForm]="addTableRowForm">
+  </app-modal-body-content>
+</div>
+<div class="modal-footer d-flex justify-content-between" *ngIf="baseActions">
+  <button
+    *ngFor="let btn of baseActions"
+    class="btn me-2"
+    [ngClass]="btn.class"
+    (click)="onButtonClick(btn.type)">
+    <i-bs *ngIf="btn.icon" [name]="btn.icon" class="me-2"></i-bs>
+    {{ btn.label }}
+  </button>
+</div>

@@ -1,0 +1,81 @@
+// google font
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
+
+$primary: #9a7041;
+$secondary: #8ad9ee;
+$accent-1: #fff0b4;
+$accent-2: #68749d;
+$success: #00b74a;
+$info: #39c0ed;
+$warning: #ffa900;
+$danger: #f93154;
+$light: #fafafa;
+$red: $danger;
+$font-family-base: 'Raleway', sans-serif;
+$link-color: $accent-2;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'accent-1': $accent-1,
+  'accent-2': $accent-2,
+  'light': $light,
+  'red': $danger,
+  // 'link': $link-color,
+);
+// contrast ratio
+// $min-contrast-ratio: 3;
+
+// Typography
+$line-height-base: 1.5;
+
+// layout container
+$container-padding-x: 1.25rem;
+
+// navbar
+$navbar-height: 3.75rem;
+$nav-link-padding-x: 0.625rem;
+
+// button
+$btn-border-radius: 2px;
+$btn-height: 2.5rem;
+$btn-font-size: 0.875rem;
+$btn-padding-top: 0.615rem;
+$btn-padding-bottom: 0.615rem;
+
+// button lg
+$btn-height-lg: 3.125rem;
+$btn-font-size-lg: 1rem;
+$btn-padding-top-lg: 0.765rem;
+$btn-padding-bottom-lg: $btn-padding-top-lg;
+
+// button floating
+$btn-floating-width: $btn-height;
+$btn-floating-height: $btn-height;
+
+// form
+$input-height: $btn-height;
+$input-font-size: 0.875rem;
+$input-padding-x: 0.615rem;
+$input-padding-y: 0.75rem;
+
+// input lg
+$input-bg: #eceff1;
+$input-group-lg-height: 3.125rem;
+$input-border-radius: 0.125rem;
+$input-border-radius-lg: 0.125rem;
+$btn-border-radius-lg: 0.125rem;
+
+// table
+$table-cell-padding-y: 0.625rem;
+
+// sidenav
+
+// $sidenav-transform: translateX(0);
+$zindex-sidenav: 1000;
+$sidenav-background-color: $primary;

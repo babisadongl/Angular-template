@@ -1,0 +1,22 @@
+<div mdbDropdown #dropdown class="dropdown">
+  <button
+    class="btn btn-light btn-floating dropdown-toggle shadow-none"
+    type="button"
+    id="dropdownMenuButton"
+    aria-expanded="false"
+    mdbDropdownToggle>
+    <i-bs name="three-dots-vertical" (click)="dropdown.show(); $event.stopPropagation()"></i-bs>
+  </button>
+  <ul
+    autoClose="true"
+    mdbDropdownMenu
+    class="dropdown-menu dropdown-menu-end shadow"
+    aria-labelledby="dropdownMenuButton">
+    <li *ngFor="let item of actions">
+      <button class="dropdown-item" type="button" (click)="handleClick(item?.type)">
+        <i-bs [name]="item?.icon"></i-bs> &nbsp;
+        {{ item?.label }}
+      </button>
+    </li>
+  </ul>
+</div>

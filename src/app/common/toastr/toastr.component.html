@@ -1,0 +1,17 @@
+<div
+  class="toast mx-auto"
+  [class]="severity"
+  id="static-example"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true">
+  <div class="toast-header text-white" [class]="severity">
+    <strong class="me-auto">{{ summary }}</strong>
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      aria-label="Close"
+      (click)="notificationRef.close()"></button>
+  </div>
+  <div class="toast-body text-white" [class]="severity">{{ detail }}</div>
+</div>

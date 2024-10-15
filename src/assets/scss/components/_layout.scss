@@ -1,0 +1,65 @@
+.app-brand {
+  height: $navbar-height;
+  padding: 0.625rem 1.5rem;
+  position: relative;
+}
+main {
+  padding-left: 250px;
+}
+
+// login
+.intro-content-wrapper,
+.login-content-wrapper {
+  h1,
+  h6,
+  p {
+    color: $white;
+    .orange-text {
+      .oakleaf-skin & {
+        color: $white !important;
+      }
+    }
+  }
+  h1,
+  h6 {
+    .oakleaf-skin & {
+      color: $dark;
+    }
+    .provider-skin & {
+      color: $white !important;
+    }
+  }
+  .card-footer {
+    p {
+      color: $dark;
+    }
+  }
+  .title-legend {
+    display: block;
+    width: 100%;
+    position: relative;
+    h6 {
+      color: $dark !important;
+      width: 60%;
+      background: white;
+      z-index: 100;
+      position: relative;
+      margin: 0 auto;
+    }
+    &:after {
+      content: '';
+      width: 100%;
+      border-top: 1px solid $light;
+      position: absolute;
+      top: 10px;
+    }
+  }
+  .calltoaction {
+    p {
+      color: $dark !important;
+    }
+  }
+}
+.login-content-wrapper {
+  background-color: rgba($primary, 0.3);
+}
